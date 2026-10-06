@@ -1,0 +1,430 @@
+{
+  "generatedAt": "2026-10-01T21:56:05.700Z",
+  "issueKey": "GEM-32064",
+  "projectKey": "GEM",
+  "scope": "folder",
+  "mode": "archive",
+  "execute": true,
+  "minConfidence": 0.9,
+  "archiveStatusName": "Deprecated",
+  "sourceFolderPath": "Ordering _ Integrated UI/GEM-32064",
+  "sourceFolderId": 57374595,
+  "totalCandidates": 20,
+  "totalLinkedCases": 12,
+  "actionableGroups": 10,
+  "skippedByConfidenceGroups": 0,
+  "duplicateGroups": [
+    {
+      "fingerprint": "sequence:GEM-32064-TC001",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63959",
+        "name": "[GEM-32064][TC001] Verify that UPC column is visible and positioned after Description",
+        "fingerprint": "sequence:GEM-32064-TC001",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63996",
+          "name": "[GEM-32064][TC001] UPC column is visible and positioned after Description",
+          "fingerprint": "sequence:GEM-32064-TC001",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC002",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63960",
+        "name": "[GEM-32064][TC002] Verify that description hyperlink opens PDP",
+        "fingerprint": "sequence:GEM-32064-TC002",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63997",
+          "name": "[GEM-32064][TC002] Description hyperlink opens PDP",
+          "fingerprint": "sequence:GEM-32064-TC002",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC003",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63961",
+        "name": "[GEM-32064][TC003] Verify that UPC filter empty input applies no filter",
+        "fingerprint": "sequence:GEM-32064-TC003",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63998",
+          "name": "[GEM-32064][TC003] UPC filter empty input applies no filter",
+          "fingerprint": "sequence:GEM-32064-TC003",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC004",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63962",
+        "name": "[GEM-32064][TC004] Verify that UPC filter accepts numeric input and finds exact match",
+        "fingerprint": "sequence:GEM-32064-TC004",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63999",
+          "name": "[GEM-32064][TC004] UPC filter accepts numeric input and finds exact match",
+          "fingerprint": "sequence:GEM-32064-TC004",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC005",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63963",
+        "name": "[GEM-32064][TC005] Verify that UPC filter rejects non-numeric characters",
+        "fingerprint": "sequence:GEM-32064-TC005",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T64000",
+          "name": "[GEM-32064][TC005] UPC filter rejects non-numeric characters",
+          "fingerprint": "sequence:GEM-32064-TC005",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC006",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63964",
+        "name": "[GEM-32064][TC006] Verify that UPC filter boundary length 200 accepted; 201 handled",
+        "fingerprint": "sequence:GEM-32064-TC006",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T64001",
+          "name": "[GEM-32064][TC006] UPC filter boundary length 200 accepted; 201 handled",
+          "fingerprint": "sequence:GEM-32064-TC006",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC007",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63965",
+        "name": "[GEM-32064][TC007] Verify that UPC partial search behavior verification",
+        "fingerprint": "sequence:GEM-32064-TC007",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T64002",
+          "name": "[GEM-32064][TC007] UPC partial search behavior verification",
+          "fingerprint": "sequence:GEM-32064-TC007",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC008",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63966",
+        "name": "[GEM-32064][TC008] Verify that organization/location mapping isolates catalog results",
+        "fingerprint": "sequence:GEM-32064-TC008",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T64003",
+          "name": "[GEM-32064][TC008] Organization/location mapping isolates catalog results",
+          "fingerprint": "sequence:GEM-32064-TC008",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC009",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63967",
+        "name": "[GEM-32064][TC009] Verify that price updates from API reflected as currently valid price",
+        "fingerprint": "sequence:GEM-32064-TC009",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T64004",
+          "name": "[GEM-32064][TC009] Price updates from API reflected as currently valid price",
+          "fingerprint": "sequence:GEM-32064-TC009",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-32064-TC010",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63968",
+        "name": "[GEM-32064][TC010] Verify that manual VisionX price update and cross-location isolation",
+        "fingerprint": "sequence:GEM-32064-TC010",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T64005",
+          "name": "[GEM-32064][TC010] Manual VisionX price update and cross-location isolation",
+          "fingerprint": "sequence:GEM-32064-TC010",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63996",
+      "name": "[GEM-32064][TC001] UPC column is visible and positioned after Description",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.583Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63997",
+      "name": "[GEM-32064][TC002] Description hyperlink opens PDP",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63998",
+      "name": "[GEM-32064][TC003] UPC filter empty input applies no filter",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63999",
+      "name": "[GEM-32064][TC004] UPC filter accepts numeric input and finds exact match",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64000",
+      "name": "[GEM-32064][TC005] UPC filter rejects non-numeric characters",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64001",
+      "name": "[GEM-32064][TC006] UPC filter boundary length 200 accepted; 201 handled",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64002",
+      "name": "[GEM-32064][TC007] UPC partial search behavior verification",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64003",
+      "name": "[GEM-32064][TC008] Organization/location mapping isolates catalog results",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64004",
+      "name": "[GEM-32064][TC009] Price updates from API reflected as currently valid price",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64005",
+      "name": "[GEM-32064][TC010] Manual VisionX price update and cross-location isolation",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-10-01T21:55:59.588Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63996",
+      "name": "[GEM-32064][TC001] UPC column is visible and positioned after Description",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:00.477Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63997",
+      "name": "[GEM-32064][TC002] Description hyperlink opens PDP",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:01.116Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63998",
+      "name": "[GEM-32064][TC003] UPC filter empty input applies no filter",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:01.735Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T63999",
+      "name": "[GEM-32064][TC004] UPC filter accepts numeric input and finds exact match",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:02.067Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64000",
+      "name": "[GEM-32064][TC005] UPC filter rejects non-numeric characters",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:02.716Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64001",
+      "name": "[GEM-32064][TC006] UPC filter boundary length 200 accepted; 201 handled",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:03.413Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64002",
+      "name": "[GEM-32064][TC007] UPC partial search behavior verification",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:04.095Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64003",
+      "name": "[GEM-32064][TC008] Organization/location mapping isolates catalog results",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:04.736Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64004",
+      "name": "[GEM-32064][TC009] Price updates from API reflected as currently valid price",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:05.063Z"
+    },
+    {
+      "action": "archive",
+      "issueKey": "GEM-32064",
+      "testCaseKey": "GEM-T64005",
+      "name": "[GEM-32064][TC010] Manual VisionX price update and cross-location isolation",
+      "result": "skipped",
+      "detail": "Already archived.",
+      "timestamp": "2026-10-01T21:56:05.700Z"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-10-02T15:18:49.789Z",
+  "issueKey": "GEM-35731",
+  "projectKey": "GEM",
+  "scope": "folder",
+  "mode": "identify",
+  "execute": false,
+  "minConfidence": 0.9,
+  "archiveStatusName": "Archived",
+  "sourceFolderPath": "Ordering _ Integrated UI/GEM-35731",
+  "sourceFolderId": 57410576,
+  "totalCandidates": 8,
+  "totalLinkedCases": 19,
+  "actionableGroups": 0,
+  "skippedByConfidenceGroups": 0,
+  "duplicateGroups": [],
+  "actions": []
+}

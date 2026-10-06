@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-02T14:25:20.922Z",
+  "issues": {
+    "GEM-37158": {
+      "issueKey": "GEM-37158",
+      "projectKey": "GEM",
+      "updatedAt": "2026-10-02T14:25:20.922Z",
+      "items": [
+        {
+          "title": "[GEM-37158][TC001] Verify that Spectacle Lens - Add-Ons category is available only for eligible organizations",
+          "normalizedTitle": "gem 37158 tc001 verify that spectacle lens add ons category is available only for eligible organizations",
+          "testCaseKey": "GEM-T63912",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC002] Verify that selecting Spectacle Lens - Add-Ons displays add-on-specific filters",
+          "normalizedTitle": "gem 37158 tc002 verify that selecting spectacle lens add ons displays add on specific filters",
+          "testCaseKey": "GEM-T63913",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC003] Verify that Supplier filter shows default All and alphabetical supplier options",
+          "normalizedTitle": "gem 37158 tc003 verify that supplier filter shows default all and alphabetical supplier options",
+          "testCaseKey": "GEM-T63914",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC004] Verify that Supplier filter falls back to only All when no suppliers are loaded",
+          "normalizedTitle": "gem 37158 tc004 verify that supplier filter falls back to only all when no suppliers are loaded",
+          "testCaseKey": "GEM-T63915",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC005] Verify that Category filter supports configured multi-select behavior",
+          "normalizedTitle": "gem 37158 tc005 verify that category filter supports configured multi select behavior",
+          "testCaseKey": "GEM-T63916",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC006] Verify that Add-On Name accepts valid input boundaries and special characters",
+          "normalizedTitle": "gem 37158 tc006 verify that add on name accepts valid input boundaries and special characters",
+          "testCaseKey": "GEM-T63917",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC007] Verify that Search action populates results and preserves entered criteria",
+          "normalizedTitle": "gem 37158 tc007 verify that search action populates results and preserves entered criteria",
+          "testCaseKey": "GEM-T63918",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC008] Verify that Clear Filters resets fields and clears search results",
+          "normalizedTitle": "gem 37158 tc008 verify that clear filters resets fields and clears search results",
+          "testCaseKey": "GEM-T63919",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        },
+        {
+          "title": "[GEM-37158][TC009] Verify that applied filter text is displayed and truncated with ellipsis when too long",
+          "normalizedTitle": "gem 37158 tc009 verify that applied filter text is displayed and truncated with ellipsis when too long",
+          "testCaseKey": "GEM-T63920",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:25:20.922Z"
+        }
+      ]
+    }
+  }
+}

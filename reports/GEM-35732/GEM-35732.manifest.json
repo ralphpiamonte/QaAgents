@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-02T16:25:58.957Z",
+  "issues": {
+    "GEM-35732": {
+      "issueKey": "GEM-35732",
+      "projectKey": "GEM",
+      "updatedAt": "2026-10-02T16:25:58.957Z",
+      "items": [
+        {
+          "title": "[GEM-35732][TC001] Verify that Spectacle Lens Add-Ons initial results display all available data or empty state",
+          "normalizedTitle": "gem 35732 tc001 verify that spectacle lens add ons initial results display all available data or empty state",
+          "testCaseKey": "GEM-T64007",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC002] Verify that duplicate Spectacle Lens Add-Ons are not shown when VW code repeats across sources",
+          "normalizedTitle": "gem 35732 tc002 verify that duplicate spectacle lens add ons are not shown when vw code repeats across sources",
+          "testCaseKey": "GEM-T64008",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC003] Verify that already imported rows are disabled and excluded from selection controls",
+          "normalizedTitle": "gem 35732 tc003 verify that already imported rows are disabled and excluded from selection controls",
+          "testCaseKey": "GEM-T64009",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC004] Verify that header checkbox reflects unchecked, partial, and checked states based on visible selectable rows",
+          "normalizedTitle": "gem 35732 tc004 verify that header checkbox reflects unchecked partial and checked states based on visible selectable rows",
+          "testCaseKey": "GEM-T64010",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC005] Verify that new search clears current selection",
+          "normalizedTitle": "gem 35732 tc005 verify that new search clears current selection",
+          "testCaseKey": "GEM-T64011",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC006] Verify that pagination with existing selection prompts confirmation and confirm clears selection",
+          "normalizedTitle": "gem 35732 tc006 verify that pagination with existing selection prompts confirmation and confirm clears selection",
+          "testCaseKey": "GEM-T64012",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC007] Verify that pagination with existing selection preserves selection when user cancels navigation",
+          "normalizedTitle": "gem 35732 tc007 verify that pagination with existing selection preserves selection when user cancels navigation",
+          "testCaseKey": "GEM-T64013",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC008] Verify that pagination settings and controls follow required defaults and options",
+          "normalizedTitle": "gem 35732 tc008 verify that pagination settings and controls follow required defaults and options",
+          "testCaseKey": "GEM-T64014",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC009] Verify that Add confirmation modal shows exact count message and cancel preserves selection",
+          "normalizedTitle": "gem 35732 tc009 verify that add confirmation modal shows exact count message and cancel preserves selection",
+          "testCaseKey": "GEM-T64015",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC010] Verify that confirming import shows in-progress toast and disables import interactions",
+          "normalizedTitle": "gem 35732 tc010 verify that confirming import shows in progress toast and disables import interactions",
+          "testCaseKey": "GEM-T64016",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC011] Verify that successful import shows success toast and imported defaults are applied",
+          "normalizedTitle": "gem 35732 tc011 verify that successful import shows success toast and imported defaults are applied",
+          "testCaseKey": "GEM-T64017",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        },
+        {
+          "title": "[GEM-35732][TC012] Verify that failed import shows failure toast and does not create imported records",
+          "normalizedTitle": "gem 35732 tc012 verify that failed import shows failure toast and does not create imported records",
+          "testCaseKey": "GEM-T64018",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T16:25:58.957Z"
+        }
+      ]
+    }
+  }
+}

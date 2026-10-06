@@ -1,0 +1,612 @@
+{
+  "generatedAt": "2026-09-29T20:37:49.480Z",
+  "issueKey": "GEM-37158",
+  "projectKey": "GEM",
+  "scope": "folder",
+  "mode": "unlink",
+  "execute": true,
+  "minConfidence": 0.9,
+  "archiveStatusName": "Archived",
+  "sourceFolderPath": "Ordering _ Integrated UI/GEM-37158",
+  "sourceFolderId": 57273331,
+  "totalCandidates": 28,
+  "totalLinkedCases": 28,
+  "actionableGroups": 10,
+  "skippedByConfidenceGroups": 0,
+  "duplicateGroups": [
+    {
+      "fingerprint": "sequence:GEM-37158-TC001",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63912",
+        "name": "[GEM-37158][TC001] Category availability and access gating for non-PV vs PV organizations",
+        "fingerprint": "sequence:GEM-37158-TC001",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63921",
+          "name": "[GEM-37158][TC001] Eligible org sees Spectacle Lens - Add-Ons in Product Category",
+          "fingerprint": "sequence:GEM-37158-TC001",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63930",
+          "name": "[GEM-37158][TC001] Non-PV org can access Spectacle Lens - Add-Ons category in Catalog Import",
+          "fingerprint": "sequence:GEM-37158-TC001",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC002",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63913",
+        "name": "[GEM-37158][TC002] Selecting Spectacle Lens - Add-Ons shows required filters",
+        "fingerprint": "sequence:GEM-37158-TC002",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63922",
+          "name": "[GEM-37158][TC002] PV org does not get catalog import functionality",
+          "fingerprint": "sequence:GEM-37158-TC002",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63931",
+          "name": "[GEM-37158][TC002] PV org catalog import restriction is enforced",
+          "fingerprint": "sequence:GEM-37158-TC002",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC003",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63914",
+        "name": "[GEM-37158][TC003] Supplier dropdown default and ordering",
+        "fingerprint": "sequence:GEM-37158-TC003",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63932",
+          "name": "[GEM-37158][TC003] Supplier dropdown default and sort order",
+          "fingerprint": "sequence:GEM-37158-TC003",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC004",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63915",
+        "name": "[GEM-37158][TC004] Supplier list when no loaded suppliers",
+        "fingerprint": "sequence:GEM-37158-TC004",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63923",
+          "name": "[GEM-37158][TC004] Supplier list source ignores selected context location",
+          "fingerprint": "sequence:GEM-37158-TC004",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63933",
+          "name": "[GEM-37158][TC004] Supplier list fallback when no loaded suppliers",
+          "fingerprint": "sequence:GEM-37158-TC004",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC005",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63916",
+        "name": "[GEM-37158][TC005] Category multi-select behavior and values",
+        "fingerprint": "sequence:GEM-37158-TC005",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63924",
+          "name": "[GEM-37158][TC005] No loaded suppliers shows only All",
+          "fingerprint": "sequence:GEM-37158-TC005",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC006",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63917",
+        "name": "[GEM-37158][TC006] Add-On Name input boundaries and character support",
+        "fingerprint": "sequence:GEM-37158-TC006",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63925",
+          "name": "[GEM-37158][TC006] Category multi-select values and behavior",
+          "fingerprint": "sequence:GEM-37158-TC006",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63934",
+          "name": "[GEM-37158][TC006] Category clear-all and individual deselect",
+          "fingerprint": "sequence:GEM-37158-TC006",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC007",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63918",
+        "name": "[GEM-37158][TC007] Search execution and state retention",
+        "fingerprint": "sequence:GEM-37158-TC007",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63926",
+          "name": "[GEM-37158][TC007] Add-On Name input boundaries",
+          "fingerprint": "sequence:GEM-37158-TC007",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63935",
+          "name": "[GEM-37158][TC007] Add-On Name input character support and max length",
+          "fingerprint": "sequence:GEM-37158-TC007",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC008",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63919",
+        "name": "[GEM-37158][TC008] Clear Filters resets criteria and results",
+        "fingerprint": "sequence:GEM-37158-TC008",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63927",
+          "name": "[GEM-37158][TC008] Search executes only on Search action and preserves filters",
+          "fingerprint": "sequence:GEM-37158-TC008",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63936",
+          "name": "[GEM-37158][TC008] Search execution and persistence of selected criteria",
+          "fingerprint": "sequence:GEM-37158-TC008",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC009",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63920",
+        "name": "[GEM-37158][TC009] Applied filter display truncation",
+        "fingerprint": "sequence:GEM-37158-TC009",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63928",
+          "name": "[GEM-37158][TC009] Clear Filters resets criteria and results",
+          "fingerprint": "sequence:GEM-37158-TC009",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        },
+        {
+          "testCaseKey": "GEM-T63937",
+          "name": "[GEM-37158][TC009] Clear Filters resets fields and search results",
+          "fingerprint": "sequence:GEM-37158-TC009",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    },
+    {
+      "fingerprint": "sequence:GEM-37158-TC010",
+      "confidence": 0.98,
+      "confidenceBasis": "sequence_tag",
+      "keep": {
+        "testCaseKey": "GEM-T63929",
+        "name": "[GEM-37158][TC010] Applied filter text truncation with ellipsis",
+        "fingerprint": "sequence:GEM-37158-TC010",
+        "confidence": 0.98,
+        "confidenceBasis": "sequence_tag",
+        "score": 320
+      },
+      "remove": [
+        {
+          "testCaseKey": "GEM-T63938",
+          "name": "[GEM-37158][TC010] Applied filters display and ellipsis truncation",
+          "fingerprint": "sequence:GEM-37158-TC010",
+          "confidence": 0.98,
+          "confidenceBasis": "sequence_tag",
+          "score": 320
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63921",
+      "name": "[GEM-37158][TC001] Eligible org sees Spectacle Lens - Add-Ons in Product Category",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.731Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63930",
+      "name": "[GEM-37158][TC001] Non-PV org can access Spectacle Lens - Add-Ons category in Catalog Import",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63922",
+      "name": "[GEM-37158][TC002] PV org does not get catalog import functionality",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63931",
+      "name": "[GEM-37158][TC002] PV org catalog import restriction is enforced",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63932",
+      "name": "[GEM-37158][TC003] Supplier dropdown default and sort order",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63923",
+      "name": "[GEM-37158][TC004] Supplier list source ignores selected context location",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63933",
+      "name": "[GEM-37158][TC004] Supplier list fallback when no loaded suppliers",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63924",
+      "name": "[GEM-37158][TC005] No loaded suppliers shows only All",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63925",
+      "name": "[GEM-37158][TC006] Category multi-select values and behavior",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63934",
+      "name": "[GEM-37158][TC006] Category clear-all and individual deselect",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63926",
+      "name": "[GEM-37158][TC007] Add-On Name input boundaries",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63935",
+      "name": "[GEM-37158][TC007] Add-On Name input character support and max length",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63927",
+      "name": "[GEM-37158][TC008] Search executes only on Search action and preserves filters",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63936",
+      "name": "[GEM-37158][TC008] Search execution and persistence of selected criteria",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63928",
+      "name": "[GEM-37158][TC009] Clear Filters resets criteria and results",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63937",
+      "name": "[GEM-37158][TC009] Clear Filters resets fields and search results",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63938",
+      "name": "[GEM-37158][TC010] Applied filters display and ellipsis truncation",
+      "result": "planned",
+      "detail": "Duplicate candidate above threshold (0.98 >= 0.90).",
+      "timestamp": "2026-09-29T20:37:26.733Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63921",
+      "name": "[GEM-37158][TC001] Eligible org sees Spectacle Lens - Add-Ons in Product Category",
+      "result": "executed",
+      "detail": "Removed link 323873762.",
+      "timestamp": "2026-09-29T20:37:28.622Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63930",
+      "name": "[GEM-37158][TC001] Non-PV org can access Spectacle Lens - Add-Ons category in Catalog Import",
+      "result": "executed",
+      "detail": "Removed link 323873873.",
+      "timestamp": "2026-09-29T20:37:30.179Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63922",
+      "name": "[GEM-37158][TC002] PV org does not get catalog import functionality",
+      "result": "executed",
+      "detail": "Removed link 323873768.",
+      "timestamp": "2026-09-29T20:37:31.755Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63931",
+      "name": "[GEM-37158][TC002] PV org catalog import restriction is enforced",
+      "result": "executed",
+      "detail": "Removed link 323873877.",
+      "timestamp": "2026-09-29T20:37:33.703Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63932",
+      "name": "[GEM-37158][TC003] Supplier dropdown default and sort order",
+      "result": "executed",
+      "detail": "Removed link 323873881.",
+      "timestamp": "2026-09-29T20:37:35.258Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63923",
+      "name": "[GEM-37158][TC004] Supplier list source ignores selected context location",
+      "result": "executed",
+      "detail": "Removed link 323873772.",
+      "timestamp": "2026-09-29T20:37:36.811Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63933",
+      "name": "[GEM-37158][TC004] Supplier list fallback when no loaded suppliers",
+      "result": "executed",
+      "detail": "Removed link 323873885.",
+      "timestamp": "2026-09-29T20:37:37.932Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63924",
+      "name": "[GEM-37158][TC005] No loaded suppliers shows only All",
+      "result": "executed",
+      "detail": "Removed link 323873776.",
+      "timestamp": "2026-09-29T20:37:39.230Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63925",
+      "name": "[GEM-37158][TC006] Category multi-select values and behavior",
+      "result": "executed",
+      "detail": "Removed link 323873778.",
+      "timestamp": "2026-09-29T20:37:40.413Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63934",
+      "name": "[GEM-37158][TC006] Category clear-all and individual deselect",
+      "result": "executed",
+      "detail": "Removed link 323873893.",
+      "timestamp": "2026-09-29T20:37:41.331Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63926",
+      "name": "[GEM-37158][TC007] Add-On Name input boundaries",
+      "result": "executed",
+      "detail": "Removed link 323873781.",
+      "timestamp": "2026-09-29T20:37:42.555Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63935",
+      "name": "[GEM-37158][TC007] Add-On Name input character support and max length",
+      "result": "executed",
+      "detail": "Removed link 323873898.",
+      "timestamp": "2026-09-29T20:37:43.665Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63927",
+      "name": "[GEM-37158][TC008] Search executes only on Search action and preserves filters",
+      "result": "executed",
+      "detail": "Removed link 323873783.",
+      "timestamp": "2026-09-29T20:37:44.889Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63936",
+      "name": "[GEM-37158][TC008] Search execution and persistence of selected criteria",
+      "result": "executed",
+      "detail": "Removed link 323873901.",
+      "timestamp": "2026-09-29T20:37:46.104Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63928",
+      "name": "[GEM-37158][TC009] Clear Filters resets criteria and results",
+      "result": "executed",
+      "detail": "Removed link 323873787.",
+      "timestamp": "2026-09-29T20:37:47.042Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63937",
+      "name": "[GEM-37158][TC009] Clear Filters resets fields and search results",
+      "result": "executed",
+      "detail": "Removed link 323873916.",
+      "timestamp": "2026-09-29T20:37:48.266Z"
+    },
+    {
+      "action": "unlink",
+      "issueKey": "GEM-37158",
+      "testCaseKey": "GEM-T63938",
+      "name": "[GEM-37158][TC010] Applied filters display and ellipsis truncation",
+      "result": "executed",
+      "detail": "Removed link 323873923.",
+      "timestamp": "2026-09-29T20:37:49.480Z"
+    }
+  ]
+}

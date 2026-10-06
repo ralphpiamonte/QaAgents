@@ -1,0 +1,256 @@
+{
+  "generatedAt": "2026-10-02T15:09:37.239Z",
+  "issueKey": "GEM-35731",
+  "issueType": "Story",
+  "mode": "approve",
+  "approved": true,
+  "qaReview": {
+    "issues": [
+      {
+        "severity": "medium",
+        "category": "vague_expected_result",
+        "testCaseTitle": "Verify that non-PV organizations can use Spectacle Lens Add-Ons category search",
+        "stepNumber": 1,
+        "message": "Expected result wording is vague; make it measurable."
+      }
+    ],
+    "totalTestCases": 8,
+    "totalSteps": 14,
+    "issueCounts": {
+      "high": 0,
+      "medium": 1,
+      "low": 0
+    },
+    "hasBlockingIssues": false
+  },
+  "analysis": {
+    "jiraIssueSummary": "374. BE - Catalog Import - Spectacle Lens Add-Ons Product Category and Filters (Category, Add-On Name)",
+    "requirementOrBugAnalysis": [
+      "Story scope is backend for Catalog Import support of a new Product Category option: \"Spectacle Lens - Add-Ons\".",
+      "Availability rule stated: Spectacle Lens category in catalog import is available only for non-PV organizations, and catalog import is not available for PV organizations for other categories as well. This implies this new category should also follow non-PV-only availability constraints.",
+      "When \"Spectacle Lens - Add-Ons\" is selected, add-on-specific filters must be shown and used for search/import flow.",
+      "Filter definitions include Supplier, Category, and Add-On Name with explicit UI behaviors documented (searchable fields, select behavior, sorting/defaults, clear behavior). Although this is BE story, FE-linked stories indicate contract/API behavior must support these constraints consistently.",
+      "Supplier filter is described as searchable single select DDM infinite scroll, with values: default \"All\" first, then active loaded supplier locations sorted A-Z; if none loaded then only \"All\".",
+      "Supplier sourcing rule: loaded eyeglasses active supplier locations across organization locations regardless of currently selected context location; electronic supplier locations only.",
+      "Supplier selection behavior for retrieval: All => master catalog; selected loaded suppliers => corresponding supplier catalogs.",
+      "Category filter is multi-select infinite scroll with values Coatings, Finishing, Other, Surfacing, Tints sorted A-Z.",
+      "Add-On Name filter is searchable text with max 200 characters and no minimum characters in main description; comments introduce possible 1-character typeahead behavior for search bar.",
+      "Multi-select behavior requirement applies to multi-select filters: keep dropdown open while selecting, explicit outside click to close, one in-field X clears all selected values, individual deselection only via dropdown.",
+      "Applied filters must display as text list within search bar, with ellipsis truncation when too long.",
+      "Actions: Search executes using current search value and filters and populates Search Results; selected criteria persist after Search. Clear Filters resets search bar, all filter fields, and search results table.",
+      "Linked stories GEM-35732/GEM-37159 contain downstream search results/selection/add behavior, so this story must at minimum return data/filtering compatible with those flows.",
+      "Comment history indicates prior conflict around Supplier single vs multi-select; latest description still states single select, so unresolved ambiguity must be clarified before final validation."
+    ],
+    "missingInformation": [
+      "Final confirmed behavior of Supplier filter selection cardinality (single-select vs multi-select) is not conclusively resolved in comments.",
+      "Definition of \"search bar\" versus \"Add-On Name\" filter is inconsistent (possible dual-search removal mentioned in comments).",
+      "Whether typeahead suggestions are required for Add-On Name field in this story, and exact API contract for suggestions, is not explicitly specified.",
+      "Exact backend endpoint(s), request/response schemas, and validation/error response standards are not provided.",
+      "Whether max 200 characters should reject >200 with validation error, silently truncate, or block input is not specified for BE.",
+      "Case sensitivity, accent/diacritic handling, and partial-match rules for Add-On Name search are not specified.",
+      "Behavior when Supplier = All and Category/Add-On Name filters are also provided is not explicitly defined beyond catalog source selection.",
+      "Pagination, sorting, and result limits for returned search results are not specified in this ticket.",
+      "Authorization/error handling behavior for PV organizations (hidden option vs API forbidden) is not explicitly defined.",
+      "No explicit performance/non-functional requirements are provided (e.g., response time under infinite scroll or search)."
+    ],
+    "ambiguities": [
+      "Comment 2 suggests removing dual search and searching based on Add-On Name/Supplier/Category, but story still references search bar and Add-On Name filter; overlap is unclear.",
+      "Main table says Supplier is single select, while review comment discusses uncertainty and potential multi-select need.",
+      "Description says Add-On Name has no minimum chars, comment mentions one character to begin populating dropdown results—unclear if this applies to search bar suggestions only.",
+      "It is unclear whether \"Searchable text field\" implies server-side suggestion endpoint or only free text submitted on Search click.",
+      "Applied filters display in search bar field may conflict if search bar itself is also input for add-on search text."
+    ],
+    "risks": [
+      "Incorrect org eligibility enforcement could expose catalog import to PV organizations or hide functionality from non-PV users.",
+      "Supplier source aggregation across organization locations may be incorrectly scoped to current context location, causing missing suppliers.",
+      "Inconsistent Supplier single/multi-select implementation between FE and BE may cause request contract mismatch.",
+      "All/default supplier behavior may incorrectly query supplier catalogs instead of master catalog, producing wrong results.",
+      "Category enum mismatches (label/casing/order) could break filtering and FE display assumptions.",
+      "Clear Filters may fail to reset backend query state, causing stale filtered results.",
+      "Typeahead/suggestion behavior ambiguity may lead to duplicate endpoints or non-functional UX expectations.",
+      "Large supplier lists with infinite scroll may cause performance or pagination defects.",
+      "Text search handling for special characters may cause query errors or injection/security concerns if not sanitized."
+    ],
+    "dependencies": [
+      "GEM-37158 (FE - Product Category and Filters) for UI behavior and request wiring.",
+      "GEM-35732 and GEM-37159 for search results, selection, add confirmation, and toast integration.",
+      "GEM-37987 sub-task defining SPL_ADDON_TYPE attribute, likely required for category/filter mapping.",
+      "Organization/supplier master data services that provide loaded active electronic supplier locations.",
+      "Authorization/tenant context service to determine PV vs non-PV organization behavior.",
+      "Existing Catalog Import and Frames/Spectacle Lens filter behavior patterns referenced as baseline."
+    ],
+    "clarificationQuestions": [
+      "Please confirm final Supplier filter behavior: single-select or multi-select?",
+      "Is there a separate top search bar input in this story, or should Add-On Name be the only free-text search input?",
+      "If typeahead suggestions are required, for which field(s) exactly (search bar, Add-On Name, both), and what is the minimum character threshold?",
+      "For Add-On Name max 200 chars, what should BE do when payload exceeds 200 (validation error vs truncate)?",
+      "Should Add-On Name matching be case-insensitive, and should special characters/diacritics be normalized?",
+      "When Supplier=All plus other filters are set, should filtering run over master catalog only, or merged supplier catalogs?",
+      "What is the expected API response when a PV organization attempts to access this category/filter endpoint (403, empty, hidden by FE only)?",
+      "Do category values use fixed backend enums? Please provide canonical enum keys and display labels.",
+      "Are there required pagination and sorting rules for supplier dropdown data and search results in this story?",
+      "Should inactive suppliers ever be returned if previously selected/stored in user state?"
+    ],
+    "recommendedTestScenarios": [
+      "Validate non-PV organization can access Spectacle Lens - Add-Ons category data path.",
+      "Validate PV organization cannot use catalog import endpoints for this category.",
+      "Validate Supplier list contains default All and loaded active electronic suppliers only, sorted A-Z.",
+      "Validate Supplier list behavior when no loaded suppliers exist (only All).",
+      "Validate Category filter supports defined values only and correct alphabetical order.",
+      "Validate Add-On Name accepts special characters and supports up to 200 characters.",
+      "Validate search execution uses combined criteria and returns filtered results.",
+      "Validate Clear Filters resets all criteria and empties/reset search results.",
+      "Validate persistence of selected filter values after Search.",
+      "Validate boundary and negative inputs (201 chars, invalid category, invalid supplier id).",
+      "Validate integration with linked search results story contract (fields/filters honored).",
+      "Validate regression of existing Spectacle Lens and Frames filter behaviors is unaffected."
+    ],
+    "detailedTestCases": [
+      {
+        "title": "Verify that non-PV organizations can use Spectacle Lens Add-Ons category search",
+        "priority": "Critical",
+        "type": "Integration",
+        "preconditions": [
+          "Test organization is non-PV",
+          "Catalog import feature is enabled",
+          "At least one add-on record exists"
+        ],
+        "steps": [
+          {
+            "action": "Call catalog import search endpoint for Product Category = Spectacle Lens - Add-Ons with Supplier=All",
+            "expected": "Request is accepted and returns successful response with add-on search results payload."
+          },
+          {
+            "action": "Include Category and Add-On Name filters in the same request",
+            "expected": "Response reflects combined filtering without contract errors."
+          }
+        ]
+      },
+      {
+        "title": "Verify that PV organizations are blocked from catalog import add-ons access",
+        "priority": "Critical",
+        "type": "Negative",
+        "preconditions": [
+          "Test organization is PV"
+        ],
+        "steps": [
+          {
+            "action": "Call catalog import add-ons category/filter/search endpoint with valid payload",
+            "expected": "Access is denied or unavailable according to platform rule for PV orgs."
+          }
+        ]
+      },
+      {
+        "title": "Verify that supplier options return All first and active loaded electronic suppliers sorted alphabetically",
+        "priority": "High",
+        "type": "API",
+        "preconditions": [
+          "Non-PV org has multiple loaded supplier locations with mixed active/inactive and electronic/non-electronic statuses"
+        ],
+        "steps": [
+          {
+            "action": "Request supplier filter options for Spectacle Lens - Add-Ons",
+            "expected": "First option is All."
+          },
+          {
+            "action": "Inspect remaining options",
+            "expected": "Only active loaded electronic supplier locations are present, sorted by name A-Z."
+          }
+        ]
+      },
+      {
+        "title": "Verify that supplier options return only All when no loaded suppliers exist",
+        "priority": "High",
+        "type": "Edge",
+        "preconditions": [
+          "Non-PV org has zero loaded suppliers for eligible scope"
+        ],
+        "steps": [
+          {
+            "action": "Request supplier filter options",
+            "expected": "Only All is returned; no supplier-specific options are included."
+          }
+        ]
+      },
+      {
+        "title": "Verify that category filter accepts only defined add-on categories",
+        "priority": "High",
+        "type": "Validation",
+        "preconditions": [
+          "Non-PV org and add-ons endpoint available"
+        ],
+        "steps": [
+          {
+            "action": "Submit search with valid categories: Coatings, Finishing, Other, Surfacing, Tints",
+            "expected": "Request succeeds and applies category filtering."
+          },
+          {
+            "action": "Submit search with an invalid category value",
+            "expected": "Request fails validation or ignores invalid value per API contract; no server error occurs."
+          }
+        ]
+      },
+      {
+        "title": "Verify that Add-On Name supports up to 200 characters and special characters",
+        "priority": "High",
+        "type": "Boundary",
+        "preconditions": [
+          "Non-PV org and add-ons endpoint available"
+        ],
+        "steps": [
+          {
+            "action": "Submit search with Add-On Name containing 200 characters including special symbols",
+            "expected": "Request is accepted and processed."
+          },
+          {
+            "action": "Submit search with Add-On Name containing 201 characters",
+            "expected": "Behavior follows defined validation handling (currently needs clarification); no unhandled error."
+          }
+        ]
+      },
+      {
+        "title": "Verify that search applies combined Supplier, Category, and Add-On Name criteria",
+        "priority": "Critical",
+        "type": "Functional",
+        "preconditions": [
+          "Dataset includes records across multiple suppliers/categories/add-on names"
+        ],
+        "steps": [
+          {
+            "action": "Search with Supplier=All, Category=Coatings, Add-On Name partial term",
+            "expected": "Results match Coatings and Add-On Name criteria from master catalog scope."
+          },
+          {
+            "action": "Search with specific Supplier and same other criteria",
+            "expected": "Results are constrained to selected supplier catalog(s) and still match other filters."
+          }
+        ]
+      },
+      {
+        "title": "Verify that Clear Filters resets criteria and search results state",
+        "priority": "High",
+        "type": "Integration",
+        "preconditions": [
+          "A prior search has been executed with non-default filters and non-empty results"
+        ],
+        "steps": [
+          {
+            "action": "Trigger Clear Filters action",
+            "expected": "Search text, Supplier, Category, and Add-On Name criteria are reset to default/blank state."
+          },
+          {
+            "action": "Observe results state after clear action",
+            "expected": "Search Results table is reset/cleared as specified."
+          }
+        ]
+      }
+    ],
+    "regressionConsiderations": [
+      "Ensure existing Catalog Import categories and filters (especially Spectacle Lens and Frames behaviors) remain unchanged.",
+      "Ensure supplier retrieval logic changes do not affect other ordering screens using supplier dropdowns.",
+      "Ensure org-level PV restrictions continue to apply consistently across all catalog import endpoints.",
+      "Ensure search result contracts consumed by GEM-35732/GEM-37159 are backward compatible where shared.",
+      "Ensure clear/search action handling does not regress persisted filter UI state behavior in FE integrations."
+    ]
+  }
+}

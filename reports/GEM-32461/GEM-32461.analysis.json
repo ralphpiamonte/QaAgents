@@ -1,0 +1,282 @@
+{
+  "generatedAt": "2026-10-02T18:59:06.923Z",
+  "issueKey": "GEM-32461",
+  "issueType": "Story",
+  "mode": "approve",
+  "approved": true,
+  "qaReview": {
+    "issues": [],
+    "totalTestCases": 10,
+    "totalSteps": 16,
+    "issueCounts": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "hasBlockingIssues": false
+  },
+  "analysis": {
+    "jiraIssueSummary": "GEM-32461 Story: Add invoice-linking controls (Add to Existing Invoice / Add to New Invoice) to the order screen footer (not cart), with mandatory-field gating, open-invoice visibility rules, redirect behavior, existing linking logic reuse, and eyeglasses makeability check (PV scope only).",
+    "requirementOrBugAnalysis": [
+      "Story scope is UI/flow enhancement on order screen footer: provide two actions to link order to invoice without returning to cart.",
+      "Both invoice actions are constrained by existing order-to-invoice logic/validation; no new linking rules are defined.",
+      "Add to New Invoice is disabled until all mandatory order fields are completed.",
+      "Add to Existing Invoice is hidden when patient has no invoices in Open status.",
+      "Clicking Add to Existing Invoice opens a dropdown above the button listing all Open invoices.",
+      "Selecting an Open invoice links the order to that invoice and redirects user to invoice page.",
+      "Clicking Add to New Invoice links order to newly created invoice and redirects user to invoice page.",
+      "If opening an order already linked to an Open invoice, both link buttons are hidden.",
+      "Eyeglasses orders must run makeability check before linking for either action, per GEM-28947 current rules.",
+      "Applicability is explicitly PV only; wholesale behavior excluded and tracked separately."
+    ],
+    "missingInformation": [
+      "Exact definition/list of 'mandatory order fields' is not provided in this ticket.",
+      "No explicit expected behavior when Add to Existing Invoice dropdown has many items (sorting, pagination, search, truncation) is provided.",
+      "No explicit UI text/error behavior defined for makeability check failure on eyeglasses in this story.",
+      "No explicit permission/role constraints are defined for visibility/clickability of invoice actions.",
+      "No explicit behavior defined if open-invoice list changes between dropdown open and selection (stale data/concurrency).",
+      "No acceptance criteria provided for API/network failure during link/create-and-link actions.",
+      "No attachment content is available here to validate visual details from image-20260622-094231.png."
+    ],
+    "ambiguities": [
+      "Description states 'two invoice actions are available' and also says Add to Existing is hidden when no open invoices; wording could be interpreted as conditionally available.",
+      "Global statement says both actions remain disabled until mandatory fields complete, but section behavior only explicitly disables Add to New Invoice; Add to Existing enable/disable state is unclear.",
+      "Behavior when order is linked to a non-open invoice is not specified for button visibility.",
+      "Whether dropdown should refresh open invoices on each click or use cached list is not specified.",
+      "Redirect destination detail (invoice details page vs specific tab/section) is not specified."
+    ],
+    "risks": [
+      "Inconsistent gating between Add to New and Add to Existing could allow invalid linking before required fields are complete.",
+      "Incorrect visibility logic may expose Add to Existing when no open invoices, causing dead-end UX.",
+      "Regression risk to existing cart-screen invoice linking flow and shared linking backend logic.",
+      "Makeability check integration risk for eyeglasses could be bypassed or double-triggered.",
+      "PV-only scope risk: accidental impact on wholesale if tenant/channel scoping is not enforced.",
+      "Concurrency risk if selected open invoice becomes closed before linking is submitted."
+    ],
+    "dependencies": [
+      "Existing order-to-invoice linking service/validation logic.",
+      "Invoice status data source for patient invoices (Open status filtering).",
+      "Eyeglasses makeability rules/process from GEM-28947.",
+      "Order form mandatory-field validation logic.",
+      "Navigation/routing to invoice page after successful link.",
+      "Linked issue GEM-38725 (Ordering Testing) for broader testing coordination."
+    ],
+    "clarificationQuestions": [
+      "Should Add to Existing Invoice also be disabled until all mandatory fields are completed, or only Add to New Invoice?",
+      "What are the exact mandatory order fields in PV context for this gating?",
+      "If order is already linked to a non-open invoice, should the two buttons be shown or hidden?",
+      "How should open invoices be ordered in dropdown (e.g., newest first, invoice number, due date)?",
+      "What should user see when makeability check fails for eyeglasses (message text, blocking behavior, stay on order page)?",
+      "What is expected behavior on API/network errors when creating/linking invoice (toast/modal, retry option, no redirect)?",
+      "Are there role-based access rules for these actions that must be enforced/tested?",
+      "Should dropdown list refresh at open time to reflect real-time invoice status changes?"
+    ],
+    "recommendedTestScenarios": [
+      "Validate footer shows both invoice actions on eligible PV order screen.",
+      "Validate mandatory-field gating behavior for Add to New (and Add to Existing once clarified).",
+      "Validate Add to Existing hidden state when patient has zero Open invoices.",
+      "Validate Add to Existing dropdown opens above button and lists only Open invoices.",
+      "Validate selecting an Open invoice links order and redirects to correct invoice page.",
+      "Validate Add to New creates/links new invoice and redirects to invoice page.",
+      "Validate when opening order already linked to an Open invoice, both actions are hidden.",
+      "Validate eyeglasses orders trigger makeability check before linking for both actions.",
+      "Negative: validate failed makeability blocks linking and prevents redirect.",
+      "Negative: validate backend/API failure for link/create does not produce false-success redirect.",
+      "Boundary: patient with exactly 1 Open invoice and with multiple Open invoices.",
+      "Regression: existing cart-screen linking flow remains unchanged.",
+      "Regression/integration: existing invoice-link validation rules still enforced."
+    ],
+    "detailedTestCases": [
+      {
+        "title": "Verify that order footer displays invoice actions for PV orders",
+        "priority": "High",
+        "type": "UI/Functional",
+        "preconditions": [
+          "User is in PV context.",
+          "User opens order screen for a patient with at least one Open invoice.",
+          "Order is not already linked to an Open invoice."
+        ],
+        "steps": [
+          {
+            "action": "Navigate to the order form footer.",
+            "expected": "Add to Existing Invoice and Add to New Invoice controls are visible."
+          }
+        ]
+      },
+      {
+        "title": "Verify that Add to New Invoice remains disabled until mandatory fields are completed",
+        "priority": "Critical",
+        "type": "Functional/Validation",
+        "preconditions": [
+          "PV context.",
+          "Order screen is open and order is not linked to an Open invoice."
+        ],
+        "steps": [
+          {
+            "action": "Leave at least one mandatory field empty.",
+            "expected": "Add to New Invoice is disabled and cannot be triggered."
+          },
+          {
+            "action": "Complete all mandatory fields.",
+            "expected": "Add to New Invoice becomes enabled."
+          }
+        ]
+      },
+      {
+        "title": "Verify that Add to Existing Invoice is hidden when no Open invoices exist",
+        "priority": "High",
+        "type": "UI/Functional",
+        "preconditions": [
+          "PV context.",
+          "Patient has zero invoices with Open status.",
+          "Order is not linked to an Open invoice."
+        ],
+        "steps": [
+          {
+            "action": "Open order screen and inspect footer.",
+            "expected": "Add to Existing Invoice is not displayed."
+          }
+        ]
+      },
+      {
+        "title": "Verify that Add to Existing Invoice opens dropdown with only Open invoices",
+        "priority": "Critical",
+        "type": "Functional",
+        "preconditions": [
+          "PV context.",
+          "Patient has multiple invoices with mixed statuses including Open.",
+          "Order is not linked to an Open invoice."
+        ],
+        "steps": [
+          {
+            "action": "Click Add to Existing Invoice.",
+            "expected": "Dropdown opens above the button."
+          },
+          {
+            "action": "Review listed invoices.",
+            "expected": "Only invoices in Open status are listed; non-Open invoices are absent."
+          }
+        ]
+      },
+      {
+        "title": "Verify that selecting an Open invoice links the order and redirects to invoice page",
+        "priority": "Critical",
+        "type": "Integration/Functional",
+        "preconditions": [
+          "PV context.",
+          "Patient has at least one Open invoice.",
+          "Order has all mandatory fields completed."
+        ],
+        "steps": [
+          {
+            "action": "Click Add to Existing Invoice and select an Open invoice.",
+            "expected": "System links current order to selected invoice."
+          },
+          {
+            "action": "Observe navigation after selection.",
+            "expected": "User is redirected to the selected invoice page."
+          }
+        ]
+      },
+      {
+        "title": "Verify that clicking Add to New Invoice creates link and redirects to invoice page",
+        "priority": "Critical",
+        "type": "Integration/Functional",
+        "preconditions": [
+          "PV context.",
+          "Order has all mandatory fields completed.",
+          "Order is not already linked to an Open invoice."
+        ],
+        "steps": [
+          {
+            "action": "Click Add to New Invoice.",
+            "expected": "A new invoice is created and order is linked to it using existing logic."
+          },
+          {
+            "action": "Observe navigation.",
+            "expected": "User is redirected to the newly created invoice page."
+          }
+        ]
+      },
+      {
+        "title": "Verify that invoice-link controls are hidden when order is already linked to an Open invoice",
+        "priority": "High",
+        "type": "UI/Functional",
+        "preconditions": [
+          "PV context.",
+          "Existing order is linked to an Open invoice."
+        ],
+        "steps": [
+          {
+            "action": "Open the linked order on order screen.",
+            "expected": "Add to Existing Invoice and Add to New Invoice controls are hidden."
+          }
+        ]
+      },
+      {
+        "title": "Verify that eyeglasses Add to Existing Invoice flow runs makeability check before linking",
+        "priority": "Critical",
+        "type": "Integration/Business Rules",
+        "preconditions": [
+          "PV context.",
+          "Order type is Eyeglasses.",
+          "Patient has at least one Open invoice.",
+          "Mandatory fields are completed."
+        ],
+        "steps": [
+          {
+            "action": "Click Add to Existing Invoice and select an Open invoice.",
+            "expected": "Makeability check is executed before link operation."
+          },
+          {
+            "action": "Allow makeability to pass.",
+            "expected": "Order is linked and user is redirected to invoice page."
+          }
+        ]
+      },
+      {
+        "title": "Verify that eyeglasses Add to New Invoice flow runs makeability check before linking",
+        "priority": "Critical",
+        "type": "Integration/Business Rules",
+        "preconditions": [
+          "PV context.",
+          "Order type is Eyeglasses.",
+          "Mandatory fields are completed."
+        ],
+        "steps": [
+          {
+            "action": "Click Add to New Invoice.",
+            "expected": "Makeability check is executed before creating/linking invoice."
+          },
+          {
+            "action": "Allow makeability to pass.",
+            "expected": "New invoice is created, order is linked, and redirect occurs."
+          }
+        ]
+      },
+      {
+        "title": "Verify that failed makeability prevents invoice linking for eyeglasses orders",
+        "priority": "High",
+        "type": "Negative/Business Rules",
+        "preconditions": [
+          "PV context.",
+          "Order type is Eyeglasses.",
+          "Test data that causes makeability failure."
+        ],
+        "steps": [
+          {
+            "action": "Attempt Add to New Invoice (or Add to Existing Invoice).",
+            "expected": "Linking is blocked when makeability fails and no invoice redirect occurs."
+          }
+        ]
+      }
+    ],
+    "regressionConsiderations": [
+      "Re-test cart-screen invoice actions to ensure no behavior regressions from shared linking logic changes.",
+      "Re-test existing order-to-invoice validations (eligibility/rules) still enforced identically.",
+      "Re-test invoice page load/routing after linking to ensure deep links and context remain correct.",
+      "Re-test non-eyeglasses order flows to confirm no unintended makeability invocation.",
+      "Re-test PV vs wholesale separation to ensure wholesale behavior is unchanged."
+    ]
+  }
+}

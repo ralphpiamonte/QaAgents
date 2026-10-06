@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-02T15:09:36.601Z",
+  "issues": {
+    "GEM-35731": {
+      "issueKey": "GEM-35731",
+      "projectKey": "GEM",
+      "updatedAt": "2026-10-02T15:09:36.601Z",
+      "items": [
+        {
+          "title": "[GEM-35731][TC001] Verify that non-PV organizations can use Spectacle Lens Add-Ons category search",
+          "normalizedTitle": "gem 35731 tc001 verify that non pv organizations can use spectacle lens add ons category search",
+          "testCaseKey": "GEM-T63829",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC002] Verify that PV organizations are blocked from catalog import add-ons access",
+          "normalizedTitle": "gem 35731 tc002 verify that pv organizations are blocked from catalog import add ons access",
+          "testCaseKey": "GEM-T63830",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC003] Verify that supplier options return All first and active loaded electronic suppliers sorted alphabetically",
+          "normalizedTitle": "gem 35731 tc003 verify that supplier options return all first and active loaded electronic suppliers sorted alphabetically",
+          "testCaseKey": "GEM-T63831",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC004] Verify that supplier options return only All when no loaded suppliers exist",
+          "normalizedTitle": "gem 35731 tc004 verify that supplier options return only all when no loaded suppliers exist",
+          "testCaseKey": "GEM-T63832",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC005] Verify that category filter accepts only defined add-on categories",
+          "normalizedTitle": "gem 35731 tc005 verify that category filter accepts only defined add on categories",
+          "testCaseKey": "GEM-T63833",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC006] Verify that Add-On Name supports up to 200 characters and special characters",
+          "normalizedTitle": "gem 35731 tc006 verify that add on name supports up to 200 characters and special characters",
+          "testCaseKey": "GEM-T63842",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC007] Verify that search applies combined Supplier, Category, and Add-On Name criteria",
+          "normalizedTitle": "gem 35731 tc007 verify that search applies combined supplier category and add on name criteria",
+          "testCaseKey": "GEM-T63834",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        },
+        {
+          "title": "[GEM-35731][TC008] Verify that Clear Filters resets criteria and search results state",
+          "normalizedTitle": "gem 35731 tc008 verify that clear filters resets criteria and search results state",
+          "testCaseKey": "GEM-T63835",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T15:09:36.601Z"
+        }
+      ]
+    }
+  }
+}

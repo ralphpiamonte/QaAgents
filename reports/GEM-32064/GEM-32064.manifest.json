@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-02T14:00:27.379Z",
+  "issues": {
+    "GEM-32064": {
+      "issueKey": "GEM-32064",
+      "projectKey": "GEM",
+      "updatedAt": "2026-10-02T14:00:27.379Z",
+      "items": [
+        {
+          "title": "[GEM-32064][TC001] Verify that the UPC filter accepts only numeric characters",
+          "normalizedTitle": "gem 32064 tc001 verify that the upc filter accepts only numeric characters",
+          "testCaseKey": "GEM-T63959",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC002] Verify that UPC filter boundary length is enforced at 200 characters",
+          "normalizedTitle": "gem 32064 tc002 verify that upc filter boundary length is enforced at 200 characters",
+          "testCaseKey": "GEM-T63960",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC003] Verify that empty UPC filter does not apply UPC filtering",
+          "normalizedTitle": "gem 32064 tc003 verify that empty upc filter does not apply upc filtering",
+          "testCaseKey": "GEM-T63961",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC004] Verify that UPC partial search returns matching records",
+          "normalizedTitle": "gem 32064 tc004 verify that upc partial search returns matching records",
+          "testCaseKey": "GEM-T63962",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC005] Verify that the UPC column is displayed as the second column after Description",
+          "normalizedTitle": "gem 32064 tc005 verify that the upc column is displayed as the second column after description",
+          "testCaseKey": "GEM-T63963",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC006] Verify that clicking description opens the PDP",
+          "normalizedTitle": "gem 32064 tc006 verify that clicking description opens the pdp",
+          "testCaseKey": "GEM-T63964",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC007] Verify that professional services list is retrieved by organization mapped from store number",
+          "normalizedTitle": "gem 32064 tc007 verify that professional services list is retrieved by organization mapped from store number",
+          "testCaseKey": "GEM-T63965",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        },
+        {
+          "title": "[GEM-32064][TC008] Verify that custom products cannot be added in VisionX for professional services catalog",
+          "normalizedTitle": "gem 32064 tc008 verify that custom products cannot be added in visionx for professional services catalog",
+          "testCaseKey": "GEM-T63966",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:00:27.379Z"
+        }
+      ]
+    }
+  }
+}

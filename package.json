@@ -1,0 +1,39 @@
+{
+  "name": "qaagents",
+  "version": "1.0.0",
+  "description": "Agentic AI Senior QA Analyst - Milestone 1 scaffold",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "env:sync-user": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/sync-user-env.ps1",
+    "prebuild": "npm run env:sync-user",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "publish:zephyr": "npm run build && npm run start -- --approve --publish-zephyr",
+    "qa:dry": "npm run build && npm run start -- --dry-run",
+    "qa:publish": "npm run build && npm run start -- --approve --publish-zephyr",
+    "qa:cleanup": "npm run build && node dist/tools/cleanupZephyrDuplicates.js --scope folder --mode identify --min-confidence 0.90 --issue",
+    "jira:auth-check:dist": "node dist/tools/checkJiraAuth.js",
+    "jira:auth-check": "npm run build && npm run jira:auth-check:dist",
+    "qa:auto:dry": "npm run build && npm run jira:auth-check:dist && npm run start -- --dry-run",
+    "qa:auto:publish": "npm run build && npm run jira:auth-check:dist && npm run start -- --approve --publish-zephyr",
+    "cleanup:zephyr": "tsx src/tools/cleanupZephyrDuplicates.ts",
+    "cleanup:zephyr:dist": "npm run build && node dist/tools/cleanupZephyrDuplicates.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "openai": "^7.23.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "generatedAt": "2026-10-02T14:44:01.933Z",
+  "issueKey": "GEM-37157",
+  "issueType": "Story",
+  "mode": "approve",
+  "approved": true,
+  "qaReview": {
+    "issues": [
+      {
+        "severity": "medium",
+        "category": "vague_expected_result",
+        "testCaseTitle": "Verify that successful import displays the success toast with exact message",
+        "stepNumber": 1,
+        "message": "Expected result wording is vague; make it measurable."
+      },
+      {
+        "severity": "medium",
+        "category": "vague_expected_result",
+        "testCaseTitle": "Verify that successful import displays the success toast with exact message",
+        "stepNumber": 2,
+        "message": "Expected result wording is vague; make it measurable."
+      }
+    ],
+    "totalTestCases": 6,
+    "totalSteps": 16,
+    "issueCounts": {
+      "high": 0,
+      "medium": 2,
+      "low": 0
+    },
+    "hasBlockingIssues": false
+  },
+  "analysis": {
+    "jiraIssueSummary": "3.1 FE - Catalog Import - Spectacle Lens Success/Failure Toast and Post-Import Visibility",
+    "requirementOrBugAnalysis": [
+      "Story scope is FE behavior after user clicks Confirm on Spectacle Lens import confirmation popup: in-progress, success, and failure toast behavior plus post-import visibility in Catalog.",
+      "Success toast requirement: green toast with exact message \"Spectacle Lens imported successfully\", includes dismiss control (x), and follows existing Frame import toast position/styling/duration.",
+      "Failure toast requirement: red toast with exact message \"Spectacle Lens catalog import failed.\", includes dismiss control (x), and follows existing Frame import toast position/styling/duration.",
+      "Loading-state toast requirement: yellow in-progress toast while import is running, includes dismiss control (x), and follows Frame import toast pattern.",
+      "During import-in-progress, user cannot import new items: checkboxes and Select All are disabled until completion.",
+      "After successful import, imported Spectacle Lens records must be visible under Settings > Ordering > Catalog > Spectacle Lens.",
+      "In catalog import section after successful import, imported records are greyed out, non-selectable, and remain with checkbox selected.",
+      "When user filters/searches by Product Category = Spectacle Lens, imported records appear in Catalog tab results table.",
+      "Catalog table behavior for Spectacle Lens references GEM-35700; this story depends on that behavior being implemented/defined.",
+      "Description includes pricing/status/marketability/invoice rules that appear largely BE/data-rule oriented; FE verification should validate visible outcomes where exposed in UI, while rule computation likely depends on BE story GEM-35253."
+    ],
+    "missingInformation": [
+      "No acceptance criteria with explicit toast duration value; only references existing Frame import pattern.",
+      "No explicit definition of what triggers failure state in FE (API error codes, partial import, timeout, validation errors).",
+      "No explicit requirement for behavior if user dismisses in-progress toast before completion.",
+      "No explicit requirement whether import action controls besides checkboxes/Select All (e.g., Confirm button, upload button) must be disabled during in-progress state.",
+      "No explicit statement on ordering/sorting position of newly imported records in Catalog table.",
+      "No explicit statement on visibility latency/refresh behavior (auto-refresh vs manual refresh required).",
+      "No explicit requirement for pluralization/count in toast content (single static message only).",
+      "No explicit requirement for handling partial success scenarios.",
+      "No explicit UI field(s) where Status=Active and Price/open price are displayed for verification.",
+      "Marketability and invoice rule reference says \"described here\" but linked source/details are not included."
+    ],
+    "ambiguities": [
+      "In-progress toast text is not specified, only color/purpose/pattern.",
+      "Requirement says imported records in import section are greyed out and checkbox selected; unclear whether this applies immediately after success only or persistently for all previously imported items.",
+      "Unclear whether user can navigate away during in-progress import and whether disabled state persists across navigation/refresh.",
+      "Unclear expected behavior when multiple imports are initiated in sequence after first completion (toast stacking/queuing).",
+      "Unclear if failure should keep records selectable for retry in import section and with what checkbox state."
+    ],
+    "risks": [
+      "FE/BE contract mismatch could show incorrect toast state (e.g., success shown on partial or failed backend processing).",
+      "Disabled-state race condition may allow duplicate import submissions if controls are not atomically disabled.",
+      "Incorrect category filter mapping may prevent newly imported Spectacle Lens from appearing in Catalog tab.",
+      "Styling/pattern drift risk if Frame import toast pattern changed and this feature does not inherit same component.",
+      "Greyed-out/non-selectable state could be applied to wrong rows if row identity mapping is unstable.",
+      "If catalog refresh is delayed, users may perceive import failure despite backend success."
+    ],
+    "dependencies": [
+      "GEM-35253 (BE counterpart for success/failure toast triggers and post-import visibility data behavior).",
+      "GEM-35700 (Spectacle Lens Catalog tab table behavior reference).",
+      "Existing Frame import toast pattern implementation for position/styling/duration parity.",
+      "Catalog import API responses/states used by FE to determine in-progress/success/failure.",
+      "Potential downstream validation in GEM-38725 (Ordering Testing)."
+    ],
+    "clarificationQuestions": [
+      "What is the exact in-progress toast message text to validate?",
+      "What exact duration and auto-dismiss behavior should be used for each toast state, or should we inherit exact values from Frame import?",
+      "If user dismisses the in-progress toast manually, should it reappear, remain dismissed, or be replaced by final success/failure toast only?",
+      "Are there partial-success outcomes for mixed valid/invalid records? If yes, what toast color/message and row states are expected?",
+      "On failure, what should be the state of affected rows in import section (checkbox selected/unselected, selectable/non-selectable, greyed/not greyed)?",
+      "Should any additional import controls (e.g., confirm/import button) be disabled during in-progress, beyond checkboxes and Select All?",
+      "Is Catalog tab expected to update automatically after success, or is manual refresh/navigation required?",
+      "Where in UI should Status=Active and computed/open price be verified for imported Spectacle Lens records?",
+      "Please provide the missing marketability/invoice rule reference link or explicit acceptance criteria."
+    ],
+    "recommendedTestScenarios": [
+      "Validate in-progress toast appears immediately after Confirm and matches yellow styling/pattern with dismiss control.",
+      "Validate import controls (checkboxes and Select All) are disabled during in-progress and re-enabled after completion where applicable.",
+      "Validate success toast exact text/color and dismiss control; confirm pattern parity with Frame import toast.",
+      "Validate failure toast exact text/color and dismiss control; confirm pattern parity with Frame import toast.",
+      "Validate successful imported records appear in Catalog > Spectacle Lens and in Product Category filter/search results.",
+      "Validate imported rows in catalog import section are greyed out, remain checked, and are non-selectable after success.",
+      "Validate behavior under backend failure/network error/timeout to ensure proper failure toast and no false visibility in Catalog.",
+      "Validate sequential imports: second import blocked during first in-progress and allowed after completion.",
+      "Validate UI state consistency on page refresh/navigation after successful import.",
+      "Validate integration alignment with GEM-35700 table behavior for Spectacle Lens display."
+    ],
+    "detailedTestCases": [
+      {
+        "title": "Verify that in-progress import displays a yellow toast and disables import selection controls",
+        "priority": "Critical",
+        "type": "Functional",
+        "preconditions": [
+          "User is logged in with access to Settings > Ordering > Catalog import area.",
+          "At least one Spectacle Lens record is available and selectable for import."
+        ],
+        "steps": [
+          {
+            "action": "Select one or more Spectacle Lens records and click Confirm in the import confirmation popup.",
+            "expected": "Import request is initiated."
+          },
+          {
+            "action": "Observe toast area immediately after confirmation.",
+            "expected": "A yellow in-progress toast is displayed and includes a dismiss control (x), matching Frame import toast placement/styling."
+          },
+          {
+            "action": "Try to click row checkboxes and Select All while import is still running.",
+            "expected": "Checkboxes and Select All are disabled and cannot be changed."
+          }
+        ]
+      },
+      {
+        "title": "Verify that successful import displays the success toast with exact message",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": [
+          "Importable Spectacle Lens record exists.",
+          "Backend is configured to return successful import response."
+        ],
+        "steps": [
+          {
+            "action": "Import Spectacle Lens record(s) by confirming import.",
+            "expected": "Import completes successfully."
+          },
+          {
+            "action": "Observe final toast after completion.",
+            "expected": "Green toast appears with exact text: \"Spectacle Lens imported successfully\" and includes dismiss control (x)."
+          },
+          {
+            "action": "Compare toast location/style/dismiss behavior to existing Frame import toast.",
+            "expected": "Position, styling, and duration behavior match Frame import toast pattern."
+          }
+        ]
+      },
+      {
+        "title": "Verify that failed import displays the failure toast with exact message",
+        "priority": "Critical",
+        "type": "Negative",
+        "preconditions": [
+          "Importable Spectacle Lens record exists.",
+          "Backend or test environment can simulate import failure."
+        ],
+        "steps": [
+          {
+            "action": "Initiate import and force/trigger failure response.",
+            "expected": "Import request completes with failure state."
+          },
+          {
+            "action": "Observe final toast after completion.",
+            "expected": "Red toast appears with exact text: \"Spectacle Lens catalog import failed.\" and includes dismiss control (x)."
+          },
+          {
+            "action": "Compare toast location/style/dismiss behavior to existing Frame import toast.",
+            "expected": "Position, styling, and duration behavior match Frame import toast pattern."
+          }
+        ]
+      },
+      {
+        "title": "Verify that successfully imported records are visible in Spectacle Lens Catalog tab",
+        "priority": "Critical",
+        "type": "Integration",
+        "preconditions": [
+          "At least one Spectacle Lens record has just been imported successfully."
+        ],
+        "steps": [
+          {
+            "action": "Navigate to Settings > Ordering > Catalog > Spectacle Lens.",
+            "expected": "Imported Spectacle Lens record(s) are present in the Catalog table."
+          },
+          {
+            "action": "Apply Product Category filter = Spectacle Lens and/or search for imported item identifiers.",
+            "expected": "Imported records are returned in results table."
+          }
+        ]
+      },
+      {
+        "title": "Verify that imported rows become greyed out, checked, and non-selectable in import section after success",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": [
+          "A Spectacle Lens import has completed successfully."
+        ],
+        "steps": [
+          {
+            "action": "Return to the catalog import section list containing the imported rows.",
+            "expected": "Imported rows are displayed as greyed out."
+          },
+          {
+            "action": "Inspect checkbox state for imported rows.",
+            "expected": "Checkboxes for imported rows remain selected."
+          },
+          {
+            "action": "Attempt to uncheck/select imported rows.",
+            "expected": "Imported rows are not selectable (no state change allowed)."
+          }
+        ]
+      },
+      {
+        "title": "Verify that import controls are re-enabled after import completion",
+        "priority": "Medium",
+        "type": "Boundary",
+        "preconditions": [
+          "Import in-progress state can be observed."
+        ],
+        "steps": [
+          {
+            "action": "Start an import and wait until final success or failure toast appears.",
+            "expected": "In-progress state ends."
+          },
+          {
+            "action": "Attempt to use checkboxes and Select All on eligible non-imported rows.",
+            "expected": "Controls are enabled again for allowed rows after completion."
+          }
+        ]
+      }
+    ],
+    "regressionConsiderations": [
+      "Regression test Frame import toasts are unaffected (position/styling/duration and messaging).",
+      "Regression test other catalog import product types to ensure disabling logic during in-progress did not over-block unrelated workflows.",
+      "Regression test Catalog filters/search behavior for non-Spectacle categories.",
+      "Regression test row selection persistence and greyed-out rendering after page reload.",
+      "Regression test FE handling of API latency/timeouts to prevent stuck disabled controls."
+    ]
+  }
+}

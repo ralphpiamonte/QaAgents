@@ -1,0 +1,323 @@
+{
+  "generatedAt": "2026-10-05T13:40:42.351Z",
+  "issueKey": "GEM-32064",
+  "issueType": "Story",
+  "mode": "dry-run",
+  "approved": false,
+  "qaReview": {
+    "issues": [],
+    "totalTestCases": 11,
+    "totalSteps": 22,
+    "issueCounts": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "hasBlockingIssues": false
+  },
+  "analysis": {
+    "jiraIssueSummary": "LC-01 - Professional services - catalog upload- List screen(search results)",
+    "requirementOrBugAnalysis": [
+      "Story scope is for Professional Services catalog list/search behavior, with Lens Crafters-specific additions that are visible for all organizations.",
+      "A UPC search filter must exist for Professional Services with input constraints: numeric characters only, min length 0, max length 200.",
+      "UPC search supports partial search; example indicates entering \"321\" returns UPCs that start with and contain \"321\".",
+      "If UPC filter is empty, no UPC filtering is applied.",
+      "Product list must include a UPC column as second column after Description.",
+      "Description field must be a hyperlink opening PDP.",
+      "Initial list source: Professional Services retrieved via API for a specific organization by mapping location store number to organization.",
+      "Catalog updates follow existing PV model: updates occur only when source systems (SAP/Eclipse) change, not from VisionX catalog modifications.",
+      "Price must update whenever a new price is received by API.",
+      "User can update price in VisionX even if this causes misalignment with external price.",
+      "Visible table price must be the currently valid price.",
+      "No ability to add custom products in VisionX for this catalog.",
+      "Any behavior not explicitly changed remains as current implementation (edit table behavior, visible data, extension management).",
+      "Linked bugs indicate prior/related risk areas: UPC column visibility, UPC search functionality, filter layout, location-specific price leakage across locations."
+    ],
+    "missingInformation": [
+      "Definition of \"currently valid\" price is not explicitly specified (API latest timestamp vs effective date vs VisionX override precedence).",
+      "Exact matching semantics for partial UPC search are unclear (contains only, starts with only, both with OR/AND, exact prioritization).",
+      "Expected behavior for UPC inputs with leading/trailing spaces is not specified.",
+      "Expected behavior when non-numeric characters are entered is not specified (blocked typing, sanitized, inline error, server validation).",
+      "Whether 200-character max is client-side only, server-side only, or both is not specified.",
+      "Expected sorting/default order of list/search results is not specified.",
+      "Pagination behavior and performance expectations for UPC search are not provided.",
+      "PDP destination details are referenced externally and not included in this issue context.",
+      "Authorization/role constraints for who can update price in VisionX are not provided.",
+      "Conflict-resolution rule when VisionX price update and API price update occur close in time is not specified.",
+      "Expected behavior for duplicate UPC values across different services is not specified.",
+      "Error handling requirements for API failures/timeouts in catalog retrieval are not specified."
+    ],
+    "ambiguities": [
+      "\"start with and contain '321'\" is logically ambiguous and may be interpreted as startsWith OR contains.",
+      "\"visible for all other organizations\" may imply global rollout, but story context is Lens Crafters-specific additions; rollout scope/timing unclear.",
+      "\"No filters are applied\" when UPC empty could still include other active filters; interaction rules with other filters are not stated.",
+      "\"No possibility to add custom products\" does not clarify if existing custom products (if any) should be hidden, retained read-only, or unaffected.",
+      "\"Catalog update managed as PV\" references another implementation not detailed here, creating interpretation dependency.",
+      "Description hyperlink behavior does not specify opening same tab vs new tab."
+    ],
+    "risks": [
+      "Regression risk that UPC column is not rendered or appears in incorrect position (linked bug GEM-33848).",
+      "Regression risk that UPC search is non-functional or mismatched with expected partial logic (linked bug GEM-33849).",
+      "UI risk for filter layout and responsive behavior (linked bug GEM-33870).",
+      "Data isolation risk where price updates from one location bleed into other locations (linked bug GEM-34133).",
+      "Data consistency risk between VisionX manual price updates and incoming API prices leading to unexpected overwrite behavior.",
+      "Validation risk if numeric-only and max length constraints are inconsistently enforced across client/server.",
+      "Integration risk in store-number-to-organization mapping causing wrong catalog content.",
+      "Usability risk if large UPC inputs (up to 200 chars) degrade search performance."
+    ],
+    "dependencies": [
+      "SAP/Eclipse source systems for catalog and pricing data.",
+      "Catalog retrieval API that maps location store number to organization and returns professional services.",
+      "VisionX catalog UI components for filters, table column rendering, and hyperlink behavior.",
+      "PDP routing/navigation implementation referenced by description hyperlink.",
+      "Existing PV catalog update mechanism behavior.",
+      "Organization/location context resolution in session or request context.",
+      "Permissions model for price edit capability in VisionX."
+    ],
+    "clarificationQuestions": [
+      "For UPC partial search, should match logic be contains, startsWith, or both? If both, is it OR logic?",
+      "How should the UI handle non-numeric UPC input: prevent typing, strip characters, or show validation error?",
+      "Should pasted input containing non-numeric characters be rejected or sanitized? What exact message should be shown?",
+      "Should leading/trailing spaces in UPC input be trimmed automatically before search?",
+      "Is max length 200 enforced both client-side and server-side, and what is expected error behavior when exceeded?",
+      "What is the precedence for displayed/valid price when both VisionX manual update and newer API price exist?",
+      "Does \"currently valid\" price depend on effective date ranges, and if so, what date/timezone rules apply?",
+      "Should description hyperlink open PDP in same tab or new tab?",
+      "If UPC filter is empty while other filters are active, should only UPC be ignored and others still applied?",
+      "Are duplicate UPCs across multiple services allowed, and if yes, should all matching rows be returned?",
+      "What is expected behavior when catalog API is unavailable (error message, retry, cached data, empty state)?",
+      "Are all organizations intended to receive this UPC filter/column now, or only LC with a later rollout?"
+    ],
+    "recommendedTestScenarios": [
+      "Verify UPC filter accepts only numeric characters during typing and paste operations.",
+      "Verify UPC filter supports boundary lengths: 0, 1, 199, 200, and over-limit 201 characters.",
+      "Verify empty UPC filter does not constrain result set.",
+      "Verify UPC partial matching behavior against dataset with values that start with, contain internally, end with, and do not contain query.",
+      "Verify UPC column is displayed as second column after Description in Professional Services list.",
+      "Verify Description is a clickable hyperlink and navigates to PDP.",
+      "Verify initial list data corresponds to organization resolved from current location store number mapping.",
+      "Verify catalog refresh behavior when source system changes occur vs no source changes.",
+      "Verify table price updates when API sends a new price.",
+      "Verify manual VisionX price update is possible and reflected in table.",
+      "Verify location isolation: price changes for one location do not appear in other locations unless expected by org-level rules.",
+      "Verify custom product creation is not available in VisionX for this catalog.",
+      "Verify previously existing catalog behaviors not in scope remain unchanged (edit table, visible fields, extension management).",
+      "Verify filter layout renders correctly across supported screen sizes/resolutions.",
+      "Verify error handling and user feedback when catalog API fails or times out."
+    ],
+    "detailedTestCases": [
+      {
+        "title": "Verify that the UPC column is displayed as the second column after Description",
+        "priority": "High",
+        "type": "UI/Functional",
+        "preconditions": [
+          "User is logged into VisionX with access to Professional Services catalog list.",
+          "Catalog contains at least one professional service record with UPC."
+        ],
+        "steps": [
+          {
+            "action": "Open the Professional Services catalog list screen.",
+            "expected": "Catalog table is displayed with headers."
+          },
+          {
+            "action": "Inspect the order of table columns around Description.",
+            "expected": "UPC column is present immediately after Description as the second column position after Description."
+          }
+        ]
+      },
+      {
+        "title": "Verify that clicking the the Description hyperlink opens the PDP",
+        "priority": "High",
+        "type": "Navigation/Functional",
+        "preconditions": [
+          "User is on Professional Services catalog list.",
+          "At least one row has a visible Description hyperlink."
+        ],
+        "steps": [
+          {
+            "action": "Click the Description value for a row.",
+            "expected": "Navigation to PDP for the selected service occurs."
+          },
+          {
+            "action": "Validate product/service identity on PDP.",
+            "expected": "PDP content corresponds to the clicked row."
+          }
+        ]
+      },
+      {
+        "title": "Verify that UPC filter with empty input applies no UPC filtering",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": [
+          "User is on catalog list with multiple records available."
+        ],
+        "steps": [
+          {
+            "action": "Clear the UPC filter input so it is empty.",
+            "expected": "UPC field is blank."
+          },
+          {
+            "action": "Execute search or wait for filter application behavior.",
+            "expected": "Result set is not reduced by UPC criterion."
+          }
+        ]
+      },
+      {
+        "title": "Verify that UPC filter accepts numeric input up to 200 characters",
+        "priority": "High",
+        "type": "Validation/Boundary",
+        "preconditions": [
+          "User is on catalog list page with UPC filter visible."
+        ],
+        "steps": [
+          {
+            "action": "Enter a 200-digit numeric string into UPC filter.",
+            "expected": "Input is accepted without validation error."
+          },
+          {
+            "action": "Attempt to add one more numeric character (201st).",
+            "expected": "System blocks additional input or returns a clear validation error indicating max length exceeded."
+          }
+        ]
+      },
+      {
+        "title": "Verify that UPC filter rejects non-numeric characters",
+        "priority": "High",
+        "type": "Validation/Negative",
+        "preconditions": [
+          "User is on catalog list page."
+        ],
+        "steps": [
+          {
+            "action": "Type alphabetic and special characters into UPC filter (e.g., abc-12).",
+            "expected": "Non-numeric characters are not accepted or a validation error is shown per implemented behavior."
+          },
+          {
+            "action": "Paste a mixed string (e.g., 12A34#56) into UPC filter.",
+            "expected": "Non-numeric content is rejected/sanitized according to implemented validation; no invalid query is executed silently."
+          }
+        ]
+      },
+      {
+        "title": "Verify that UPC partial search returns matching records",
+        "priority": "Critical",
+        "type": "Functional/Search",
+        "preconditions": [
+          "Test data includes UPCs that start with and/or contain '321' (e.g., 321999, 983211, 777777)."
+        ],
+        "steps": [
+          {
+            "action": "Enter 321 in UPC filter and execute search.",
+            "expected": "Only rows matching configured partial logic for 321 are returned; non-matching UPCs are excluded."
+          },
+          {
+            "action": "Review all returned UPC values.",
+            "expected": "Each returned UPC satisfies the implemented matching rule consistently."
+          }
+        ]
+      },
+      {
+        "title": "Verify that catalog data is loaded based on location store-to-organization mapping",
+        "priority": "Critical",
+        "type": "Integration",
+        "preconditions": [
+          "Two test locations exist mapped to different organizations with distinct Professional Services catalogs."
+        ],
+        "steps": [
+          {
+            "action": "Log in/select Location A and open catalog list.",
+            "expected": "List shows services belonging to Organization A mapping."
+          },
+          {
+            "action": "Switch to Location B and reopen catalog list.",
+            "expected": "List shows services belonging to Organization B mapping and differs from Location A where expected."
+          }
+        ]
+      },
+      {
+        "title": "Verify that API-delivered new price is reflected in catalog table",
+        "priority": "Critical",
+        "type": "Integration/Data",
+        "preconditions": [
+          "A known service exists with baseline price.",
+          "Ability to trigger or simulate API price update for that service."
+        ],
+        "steps": [
+          {
+            "action": "Record current displayed price for the target service.",
+            "expected": "Baseline price is visible."
+          },
+          {
+            "action": "Trigger API update with a new price and refresh/reload catalog.",
+            "expected": "Displayed price updates to the new API-provided value."
+          }
+        ]
+      },
+      {
+        "title": "Verify that user can manually update price in VisionX",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": [
+          "User has permissions to edit catalog price.",
+          "Target professional service row exists."
+        ],
+        "steps": [
+          {
+            "action": "Edit price for a service in VisionX and save changes.",
+            "expected": "Save succeeds and updated price appears in table."
+          },
+          {
+            "action": "Reopen the list or refresh the page.",
+            "expected": "Manually updated price remains visible until superseded by validity rules."
+          }
+        ]
+      },
+      {
+        "title": "Verify that price updates are isolated per location context",
+        "priority": "Critical",
+        "type": "Regression/Integration",
+        "preconditions": [
+          "At least two locations available where prior defect risk exists."
+        ],
+        "steps": [
+          {
+            "action": "At Location A, apply a price update (manual or API-driven) for a shared service identifier.",
+            "expected": "Updated price is visible in Location A context."
+          },
+          {
+            "action": "Switch to Location B and view same service.",
+            "expected": "Location B does not incorrectly display Location A-specific updated price unless business rules explicitly require shared value."
+          }
+        ]
+      },
+      {
+        "title": "Verify that custom product addition is not available in Professional Services catalog",
+        "priority": "Medium",
+        "type": "Authorization/Functional",
+        "preconditions": [
+          "User is on Professional Services catalog screen."
+        ],
+        "steps": [
+          {
+            "action": "Look for UI action to add custom product (button/menu/API action if exposed).",
+            "expected": "No option is available to add custom products."
+          },
+          {
+            "action": "Attempt direct navigation or action invocation for custom add flow, if possible.",
+            "expected": "Operation is blocked or unavailable for Professional Services catalog."
+          }
+        ]
+      }
+    ],
+    "regressionConsiderations": [
+      "Re-test linked defects GEM-33848, GEM-33849, GEM-33870, GEM-34133 in current build.",
+      "Verify existing catalog edit table behaviors remain unchanged where not explicitly modified.",
+      "Verify existing visible data fields and extension management continue to function as before.",
+      "Regression test search/filter interactions with other existing filters and combined criteria.",
+      "Regression test table rendering/sorting/pagination behaviors after UPC column insertion.",
+      "Regression test cross-organization and cross-location data separation and correctness.",
+      "Regression test role-based access around price editing and read-only users.",
+      "Regression test API sync cadence and update triggers to ensure no updates occur without source-system changes."
+    ]
+  }
+}

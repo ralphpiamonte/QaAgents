@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-02T14:44:00.544Z",
+  "issues": {
+    "GEM-37157": {
+      "issueKey": "GEM-37157",
+      "projectKey": "GEM",
+      "updatedAt": "2026-10-02T14:44:00.544Z",
+      "items": [
+        {
+          "title": "[GEM-37157][TC001] Verify that in-progress import displays a yellow toast and disables import selection controls",
+          "normalizedTitle": "gem 37157 tc001 verify that in progress import displays a yellow toast and disables import selection controls",
+          "testCaseKey": "GEM-T63939",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:44:00.544Z"
+        },
+        {
+          "title": "[GEM-37157][TC002] Verify that successful import displays the success toast with exact message",
+          "normalizedTitle": "gem 37157 tc002 verify that successful import displays the success toast with exact message",
+          "testCaseKey": "GEM-T63940",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:44:00.544Z"
+        },
+        {
+          "title": "[GEM-37157][TC003] Verify that failed import displays the failure toast with exact message",
+          "normalizedTitle": "gem 37157 tc003 verify that failed import displays the failure toast with exact message",
+          "testCaseKey": "GEM-T63941",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:44:00.544Z"
+        },
+        {
+          "title": "[GEM-37157][TC004] Verify that successfully imported records are visible in Spectacle Lens Catalog tab",
+          "normalizedTitle": "gem 37157 tc004 verify that successfully imported records are visible in spectacle lens catalog tab",
+          "testCaseKey": "GEM-T63942",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:44:00.544Z"
+        },
+        {
+          "title": "[GEM-37157][TC005] Verify that imported rows become greyed out, checked, and non-selectable in import section after success",
+          "normalizedTitle": "gem 37157 tc005 verify that imported rows become greyed out checked and non selectable in import section after success",
+          "testCaseKey": "GEM-T63943",
+          "lastAction": "reused",
+          "updatedAt": "2026-10-02T14:44:00.544Z"
+        }
+      ]
+    }
+  }
+}

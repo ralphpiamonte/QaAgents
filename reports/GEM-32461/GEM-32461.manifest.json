@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-02T18:59:06.301Z",
+  "issues": {
+    "GEM-32461": {
+      "issueKey": "GEM-32461",
+      "projectKey": "GEM",
+      "updatedAt": "2026-10-02T18:59:06.301Z",
+      "items": [
+        {
+          "title": "[GEM-32461][TC001] Verify that order footer displays invoice actions for PV orders",
+          "normalizedTitle": "gem 32461 tc001 verify that order footer displays invoice actions for pv orders",
+          "testCaseKey": "GEM-T64025",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC002] Verify that Add to New Invoice remains disabled until mandatory fields are completed",
+          "normalizedTitle": "gem 32461 tc002 verify that add to new invoice remains disabled until mandatory fields are completed",
+          "testCaseKey": "GEM-T64026",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC003] Verify that Add to Existing Invoice is hidden when no Open invoices exist",
+          "normalizedTitle": "gem 32461 tc003 verify that add to existing invoice is hidden when no open invoices exist",
+          "testCaseKey": "GEM-T64027",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC004] Verify that Add to Existing Invoice opens dropdown with only Open invoices",
+          "normalizedTitle": "gem 32461 tc004 verify that add to existing invoice opens dropdown with only open invoices",
+          "testCaseKey": "GEM-T64028",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC005] Verify that selecting an Open invoice links the order and redirects to invoice page",
+          "normalizedTitle": "gem 32461 tc005 verify that selecting an open invoice links the order and redirects to invoice page",
+          "testCaseKey": "GEM-T64029",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC006] Verify that clicking Add to New Invoice creates link and redirects to invoice page",
+          "normalizedTitle": "gem 32461 tc006 verify that clicking add to new invoice creates link and redirects to invoice page",
+          "testCaseKey": "GEM-T64030",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC007] Verify that invoice-link controls are hidden when order is already linked to an Open invoice",
+          "normalizedTitle": "gem 32461 tc007 verify that invoice link controls are hidden when order is already linked to an open invoice",
+          "testCaseKey": "GEM-T64031",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC008] Verify that eyeglasses Add to Existing Invoice flow runs makeability check before linking",
+          "normalizedTitle": "gem 32461 tc008 verify that eyeglasses add to existing invoice flow runs makeability check before linking",
+          "testCaseKey": "GEM-T64032",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC009] Verify that eyeglasses Add to New Invoice flow runs makeability check before linking",
+          "normalizedTitle": "gem 32461 tc009 verify that eyeglasses add to new invoice flow runs makeability check before linking",
+          "testCaseKey": "GEM-T64033",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        },
+        {
+          "title": "[GEM-32461][TC010] Verify that failed makeability prevents invoice linking for eyeglasses orders",
+          "normalizedTitle": "gem 32461 tc010 verify that failed makeability prevents invoice linking for eyeglasses orders",
+          "testCaseKey": "GEM-T64034",
+          "lastAction": "created",
+          "updatedAt": "2026-10-02T18:59:06.301Z"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "generatedAt": "2026-10-02T14:25:21.645Z",
+  "issueKey": "GEM-37158",
+  "issueType": "Story",
+  "mode": "approve",
+  "approved": true,
+  "qaReview": {
+    "issues": [],
+    "totalTestCases": 9,
+    "totalSteps": 22,
+    "issueCounts": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "hasBlockingIssues": false
+  },
+  "analysis": {
+    "jiraIssueSummary": "4. FE - Catalog Import - Spectacle Lens Add-Ons Product Category and Filters (Category, Add-On Name)",
+    "requirementOrBugAnalysis": [
+      "Story scope is FE behavior in Settings > Ordering > Catalog Import to support a new Product Category option: Spectacle Lens - Add-Ons.",
+      "Product category availability is constrained by organization type: Spectacle Lens category is for non-PV organizations; catalog import is not available for PV organizations across categories.",
+      "Spectacle Lens and Spectacle Lens Add-Ons are separate data structures and must be searched/imported separately.",
+      "When Spectacle Lens - Add-Ons is selected, add-on-specific filters must be shown.",
+      "Specified filters for this category are Supplier, Category, and Add-On Name.",
+      "Supplier filter is defined in base description as searchable single-select DDM with infinite scroll, default value All, alphabetical sorting for supplier names, and sourcing from active loaded electronic supplier locations; includes behavior when no suppliers are loaded (All only).",
+      "Comment discussion introduces conflict about Supplier possibly being multi-select; latest comment says unresolved and asks for decision, so final requirement is not confirmed.",
+      "Category filter is multi-select DDM with infinite scroll and values Coatings, Finishing, Other, Surfacing, Tints sorted alphabetically.",
+      "Add-On Name filter is searchable text field supporting alphanumeric and special characters with max 200 characters and no minimum characters.",
+      "Comment indicates typeahead suggestions should appear under search input beginning at 1 character, but search results table is populated only when Search button is clicked.",
+      "Multi-select behavior requirements apply to multi-select filters: selected values persist, dropdown stays open during selection, closes only on outside click, single internal x clears all selections, individual removal done by deselecting in dropdown, and deselecting one does not clear others.",
+      "Applied filters are shown as text list inside search bar field and truncated with ellipsis when too long.",
+      "Actions: Search executes using current search value + selected filters and populates Search Results; selected criteria remain after Search. Clear Filters resets search bar, all filters, and Search Results table."
+    ],
+    "missingInformation": [
+      "Final confirmed selection mode for Supplier filter (single-select vs multi-select) is not resolved in comments.",
+      "Exact label/placement distinction between global search bar ('Search add-ons') and Add-On Name filter is unclear after comment requesting removal of dual search.",
+      "Exact source API contract and response behavior for typeahead dropdown suggestions is not provided.",
+      "Behavior when no results are returned (empty state message, table state) is not specified.",
+      "Case sensitivity/accent sensitivity rules for Add-On Name search and typeahead matching are not specified.",
+      "Trim/whitespace handling rules for Add-On Name input are not specified.",
+      "Whether Add-On Name field is mandatory for search execution is not specified.",
+      "Whether Supplier filter supports selecting All together with other supplier values (if multi-select) is not specified.",
+      "Pagination/sorting behavior in Search Results after this filter set is not specified in this story.",
+      "No explicit acceptance criteria for keyboard accessibility of dropdown/typeahead interactions."
+    ],
+    "ambiguities": [
+      "Description says Add-On Name has no minimum characters, while comment states one character to start dropdown suggestions.",
+      "Description lists both category and add-on name search fields; comment suggests removing dual search and relying on Add-On Name/Supplier/Category filters.",
+      "Supplier selection behavior is contradictory: documented single-select vs open debate on multi-select in review comment.",
+      "Applied filter display is stated as inside search bar field, but if dual search is removed, target UI element for applied list is unclear.",
+      "Supplier dependency text references loaded eyeglasses supplier locations; applicability for add-ons may be inferred but not explicitly restated."
+    ],
+    "risks": [
+      "Incorrect org gating could expose catalog import to PV organizations or hide it from eligible non-PV organizations.",
+      "Supplier filter implementation mismatch (single vs multi) can break expected backend query behavior and user workflows.",
+      "Typeahead triggering and Search button execution may conflict, causing premature table updates or stale results.",
+      "Large supplier lists with infinite scroll may cause performance issues, duplicate entries, or ordering defects.",
+      "Clear Filters may fail to reset results table or hidden stateful controls, leading to false user assumptions.",
+      "Ellipsis truncation for applied filters may hide critical selection context and create usability issues.",
+      "Special-character handling in Add-On Name may cause escaping issues or failed queries."
+    ],
+    "dependencies": [
+      "GEM-35731 (BE product category and filters support) for API/data support of add-ons filtering.",
+      "GEM-35732 (BE search results/selection/add flow) for search execution and returned dataset behavior.",
+      "GEM-37159 (FE search results, selection, add confirmation, toast) for end-to-end flow continuity after filters/search.",
+      "Supplier/location master data availability and active/loaded electronic supplier location flags.",
+      "Existing shared UI behavior patterns referenced from Frames filters and Spectacle Lens searchable dropdown components."
+    ],
+    "clarificationQuestions": [
+      "Please confirm final Supplier filter behavior: single-select or multi-select?",
+      "If Supplier is multi-select, can All be selected together with specific suppliers, or is it mutually exclusive?",
+      "Is the separate 'Search add-ons' bar still required, or should Add-On Name be the only text search input?",
+      "If both search bar and Add-On Name remain, how do they interact when both contain values (AND/OR precedence)?",
+      "Should typeahead suggestions appear for Add-On Name only, search bar only, or both?",
+      "Please confirm minimum characters: 0 for manual search execution, and 1 for suggestion dropdown triggering?",
+      "What exact behavior is expected when Search is clicked with all filters blank/default?",
+      "What empty-state text/UI is expected when search returns no results?",
+      "Should Add-On Name matching be case-insensitive and trim leading/trailing spaces?",
+      "Is there a required debounce timing or max number of suggestions for typeahead dropdown?"
+    ],
+    "recommendedTestScenarios": [
+      "Validate product category visibility and access gating for PV vs non-PV organizations.",
+      "Validate Spectacle Lens - Add-Ons selection renders correct add-on-specific filter set.",
+      "Validate Supplier filter defaults, ordering, source constraints, and no-loaded-supplier fallback.",
+      "Validate Category multi-select values, sort order, and multi-select interaction behavior.",
+      "Validate Add-On Name input constraints (0..200, special chars) and suggestion trigger behavior.",
+      "Validate Search action uses current filter state and preserves selected values post-search.",
+      "Validate Clear Filters resets search input, all filters, and results table state.",
+      "Validate applied filter display and ellipsis truncation behavior for long selections.",
+      "Validate negative and boundary scenarios: max length, special characters, empty selections, no results.",
+      "Validate integration with BE stories for accurate result retrieval per supplier/category/name combinations."
+    ],
+    "detailedTestCases": [
+      {
+        "title": "Verify that Spectacle Lens - Add-Ons category is available only for eligible organizations",
+        "priority": "Critical",
+        "type": "Functional/Access",
+        "preconditions": [
+          "Have one non-PV test org and one PV test org",
+          "User has access to Settings > Ordering > Catalog Import"
+        ],
+        "steps": [
+          {
+            "action": "Login with non-PV org user and open Catalog Import product category dropdown",
+            "expected": "Spectacle Lens - Add-Ons option is visible and selectable"
+          },
+          {
+            "action": "Login with PV org user and navigate to Catalog Import",
+            "expected": "Catalog Import is not available (or inaccessible) per org rule"
+          }
+        ]
+      },
+      {
+        "title": "Verify that selecting Spectacle Lens - Add-Ons displays add-on-specific filters",
+        "priority": "High",
+        "type": "UI/Functional",
+        "preconditions": [
+          "Non-PV org user is on Catalog Import page"
+        ],
+        "steps": [
+          {
+            "action": "Select Product Category = Spectacle Lens - Add-Ons",
+            "expected": "Filter panel shows Supplier, Category, and Add-On Name fields relevant to add-ons"
+          },
+          {
+            "action": "Observe filters specific to other categories",
+            "expected": "Non-applicable category-specific fields are not shown"
+          }
+        ]
+      },
+      {
+        "title": "Verify that Supplier filter shows default All and alphabetical supplier options",
+        "priority": "High",
+        "type": "Functional/Data",
+        "preconditions": [
+          "Eligible org with loaded active electronic supplier locations"
+        ],
+        "steps": [
+          {
+            "action": "Open Supplier dropdown after selecting Spectacle Lens - Add-Ons",
+            "expected": "All is first and selected by default"
+          },
+          {
+            "action": "Inspect supplier list ordering",
+            "expected": "Supplier names are sorted alphabetically A-Z"
+          },
+          {
+            "action": "Use search in Supplier dropdown",
+            "expected": "List is searchable and results filter accordingly"
+          }
+        ]
+      },
+      {
+        "title": "Verify that Supplier filter falls back to only All when no suppliers are loaded",
+        "priority": "High",
+        "type": "Negative/Data",
+        "preconditions": [
+          "Eligible org with no loaded suppliers"
+        ],
+        "steps": [
+          {
+            "action": "Open Supplier dropdown",
+            "expected": "Only All is available and selected"
+          },
+          {
+            "action": "Run Search with default filters",
+            "expected": "Search executes without supplier-specific selection errors"
+          }
+        ]
+      },
+      {
+        "title": "Verify that Category filter supports configured multi-select behavior",
+        "priority": "High",
+        "type": "UI/Functional",
+        "preconditions": [
+          "Spectacle Lens - Add-Ons selected"
+        ],
+        "steps": [
+          {
+            "action": "Open Category dropdown",
+            "expected": "Values include Coatings, Finishing, Other, Surfacing, Tints in alphabetical order"
+          },
+          {
+            "action": "Select multiple category values",
+            "expected": "Dropdown remains open and selected values remain visible in field"
+          },
+          {
+            "action": "Click outside dropdown",
+            "expected": "Dropdown closes and selections persist"
+          },
+          {
+            "action": "Click the single x inside Category field",
+            "expected": "All selected category values are cleared"
+          }
+        ]
+      },
+      {
+        "title": "Verify that Add-On Name accepts valid input boundaries and special characters",
+        "priority": "High",
+        "type": "Boundary/Validation",
+        "preconditions": [
+          "Spectacle Lens - Add-Ons selected"
+        ],
+        "steps": [
+          {
+            "action": "Enter 200-character mixed alphanumeric/special-character value in Add-On Name",
+            "expected": "Input is accepted without validation error"
+          },
+          {
+            "action": "Enter 201-character value",
+            "expected": "Input is blocked at 200 characters or validation clearly prevents submission beyond 200"
+          },
+          {
+            "action": "Leave Add-On Name blank and click Search",
+            "expected": "Search executes using other/default filters (if allowed) without mandatory-field error"
+          }
+        ]
+      },
+      {
+        "title": "Verify that Search action populates results and preserves entered criteria",
+        "priority": "Critical",
+        "type": "Functional/Integration",
+        "preconditions": [
+          "Spectacle Lens - Add-Ons selected",
+          "At least one known matching dataset exists"
+        ],
+        "steps": [
+          {
+            "action": "Set Supplier/Category/Add-On Name filters with known matching criteria and click Search",
+            "expected": "Search Results table populates with matching add-on records"
+          },
+          {
+            "action": "Inspect filter values after results load",
+            "expected": "All selected/entered filter values remain visible and unchanged"
+          }
+        ]
+      },
+      {
+        "title": "Verify that Clear Filters resets fields and clears search results",
+        "priority": "Critical",
+        "type": "Functional",
+        "preconditions": [
+          "A prior search has been executed and results are visible"
+        ],
+        "steps": [
+          {
+            "action": "Click Clear Filters",
+            "expected": "Search bar/input is reset, Supplier/Category/Add-On Name return to default/blank states"
+          },
+          {
+            "action": "Observe Search Results table",
+            "expected": "Results table is cleared/reset as specified"
+          }
+        ]
+      },
+      {
+        "title": "Verify that applied filter text is displayed and truncated with ellipsis when too long",
+        "priority": "Medium",
+        "type": "UI",
+        "preconditions": [
+          "Spectacle Lens - Add-Ons selected",
+          "Multiple filter values selected to create long applied-filter text"
+        ],
+        "steps": [
+          {
+            "action": "Apply long combined filter selections and run Search if required to display applied filters",
+            "expected": "Applied filters appear as text list in designated field"
+          },
+          {
+            "action": "Check display when text exceeds available width",
+            "expected": "Text is truncated with ellipsis rather than overflowing or wrapping incorrectly"
+          }
+        ]
+      }
+    ],
+    "regressionConsiderations": [
+      "Existing Catalog Import behavior for other product categories remains unchanged.",
+      "Frames multi-select filter interaction pattern remains consistent and unaffected.",
+      "Spectacle Lens existing searchable dropdown behavior in ordering flow is not regressed by shared component updates.",
+      "Search/Clear actions continue to work consistently across categories after introducing add-ons category.",
+      "No regression in supplier data loading/infinite scroll performance for large organizations."
+    ]
+  }
+}

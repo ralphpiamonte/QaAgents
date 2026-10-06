@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-09-29T18:51:18.473Z",
+  "issueKey": "GEM-37158",
+  "projectKey": "GEM",
+  "mode": "identify",
+  "execute": false,
+  "minConfidence": 0.9,
+  "archiveStatusName": "Archived",
+  "totalLinkedCases": 0,
+  "actionableGroups": 0,
+  "skippedByConfidenceGroups": 0,
+  "duplicateGroups": [],
+  "actions": []
+}
