@@ -1,5 +1,9 @@
 # Agentic AI Senior QA Analyst (Milestone 1 + Milestone 2 Scaffold)
 
+[![Status: Active](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/ralphpiamonte/QaAgents)
+
+Automates Jira story QA analysis, Zephyr test-case publish/update flows, and safe duplicate cleanup with guardrails.
+
 Current implementation provides:
 
 - Input Jira key (for example `ABC-123`)
